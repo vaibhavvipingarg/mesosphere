@@ -1,0 +1,29 @@
+{
+	"apps": [
+		{
+			"name": "Hadoop",
+			"sc": "HD",
+			"type": 1
+		},
+		{
+			"name": "Rails",
+			"sc": "RL",
+			"type": 2
+		},
+		{
+			"name": "Chronos",
+			"sc": "CH",
+			"type": 3
+		},
+		{
+			"name": "Storm",
+			"sc": "ST",
+			"type": 4
+		},
+		{
+			"name": "Spark",
+			"sc": "SP",
+			"type": 5
+		}
+	]
+}

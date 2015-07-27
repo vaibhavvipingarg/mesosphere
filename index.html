@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-framework="angularjs">
+	<head>
+		<meta charset="utf-8">
+		<title>Mesosphere • Server Cluster</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mainStyle.css">
+		<style>[ng-cloak] { display: none; }</style>
+	</head>
+	<body ng-app="servercluster">
+		<ng-view />
+
+		<script type="text/ng-template" id="serverCluster.html">
+			<div class="cluster-container">
+			    <div class="leftPanel">
+				    	<div class = "row serverActions">
+							<form id="todo-form">
+							    <div ng-click="addServer()" class="add-server" value="Add" title="Add Server"><span class="add-server-label">Add Server</span></div>
+							    <div ng-click="deleteServer()" class="remove-server" value="Delete" title = "Delete Server"><span class="delete-server-label">Destroy</span></div>
+							</form>
+				    	</div>
+				    	<div class = "row appActions">
+		      				<div id="apps" ng-cloak>
+								<div ng-repeat="app in availableApps" class="av-app-view">
+									<div class ="app-marker" ng-class="getAppClassName(undefined, app)"></div>
+									<label class="app-view-label">{{app.name}}</label>
+									<form id="av-apps-form">
+									    <input type="button" ng-click="deleteApp(app)" value="-" />
+								    	<input type="button" ng-click="addApp(app.type)" class = "add-app" ng-class="getAppClassName(undefined, app)" value="+" />
+									</form>
+								</div>
+							</div>
+				    	</div>
+			    </div>
+			    <div class="clusterPanel">
+			    	<h2 class="cluster-label">Server Canvas</h2>
+					<div id="main" ng-cloak>
+						<div class="server-cluster">
+							<div ng-repeat="server in servers" class="server-view">
+								<div class="server-overlay">
+									<div class="overlay-image" ng-click="deleteServer(server.id)" title="Destroy Server"></div>
+								</div>
+								<div ng-repeat="app in server.apps" class="app-view text-center" ng-class="getAppClassName(server, app)">
+									<h3>
+										<label class="app-view-label" style="font-size:11pt; font-weight: bold;">{{app.sc}}</label> 
+									</h3>
+									<label class="app-view-label">{{app.name}}</label>
+									<label class="app-view-label"><span data-livestamp={{app.creationTime}}></span></label>
+								</div>
+							</div>
+						</div>
+					</div>			    
+			    </div>
+			</div>
+		</script>
+		<script src="js/lib/angular/angular.js"></script>
+		<script src="js/lib/angular/angular-route.js"></script>
+		<script src="js/lib/jquery.js"></script>
+		<script src="js/lib/moment.js"></script>
+		<script src="js/lib/liveStamp.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers/serverClusterCtrl.js"></script>
+		<script src="js/services/serverCluster.js"></script>
+	</body>
+</html>

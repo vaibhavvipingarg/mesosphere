@@ -1,0 +1,188 @@
+body{
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  min-width: 550px;
+}
+.cluster-container{
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+#main {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding-left: 40px;
+}
+.cluster-label{
+  color: white;
+  font-size: 15pt;
+  font-family: verdana;
+  margin-left: 20px;
+}
+.leftPanel{
+  background-color: #383636;
+  height: 100vh;
+  z-index: 2;
+  width: 250px;
+  float: left;
+  position: fixed;
+}
+.clusterPanel{
+  background-color: #000;
+  height: 100vh;
+  z-index: 1;
+  width: calc(100% - 250px);
+  float: left;
+  position: relative;
+  left: 275px;
+}
+#apps {
+  display: inline-block;
+  width: 110%;
+}
+.serverActions{
+  height: 150px;
+  margin: 50px 0 50px 0px;
+  text-align: center;
+}
+.add-server{
+  background-image: url("images/add.png");
+  height: 32px;
+  width: 32px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.add-server-label{
+  position: absolute;
+  top: 35px;
+  color: white;
+  font-size: 7pt;
+  width: 100px;
+  left: -35px;
+}
+.delete-server-label{
+  position: absolute;
+  top: 35px;
+  color: white;
+  font-size: 7pt;
+  width: 100px;
+  left: -33px;
+}
+.remove-server{
+  background-image: url("images/delete.png");
+  height: 32px;
+  width: 32px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.appActions{
+  height: 200px;
+  margin: 50px 0 50px 2px;
+}
+.server-view{
+  width: 200px;
+  height: 125px;
+  margin: 20px 10px;
+  display: inline-table;
+  background-color: #383636;
+  vertical-align: middle;
+}
+.server-view:hover .server-overlay{
+  opacity: 0.5;
+  width: 200px;
+  height: 125px;
+  display: block;
+  background-color: gray;
+  position: absolute;
+  z-index: 5;
+}
+.overlay-image{
+  height: 64px;
+  width: 64px;
+  position: relative;
+  text-align: center;
+  background-image: url("images/delete_64.png");
+  left: 33%;
+  top:20%;
+  cursor: pointer;
+}
+.server-overlay{
+  display: none;
+}
+.app-view{
+	height: 100%;
+	width: 100%;
+	display: inline-table;
+}
+
+.app-view.multiple{
+  width: 50%;
+  border-left: 1px solid black;
+}
+.av-app-view{
+  display: inherit;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
+}
+.app-view .app-view-label { 
+  float: none;
+  font-size: 8pt;
+  font-weight: normal;
+  font-family: verdana;
+  display: block;
+}
+.app-marker{
+  height: 29px;
+  width: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+}
+.app-view-label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  float: left;
+  color: white;
+  vertical-align: middle;
+  padding-left: 10px;
+  font-family: verdana;
+}
+.av-app-view form {
+  float: right;
+  display: inline-block;
+}
+.add-app{
+  border-radius: 15px;
+}
+.grad0 {
+  background-color: rgba(255,0,127,1);
+  opacity: 0.7;
+}
+
+.grad1 {
+  background-color: blue;
+    opacity: 0.7;
+}
+
+.grad2 {
+    background-color: #00A1FF;
+    opacity: 0.7;
+}
+
+.grad3 {
+    background-color: #00FF42;
+    opacity: 0.7;
+}
+
+.grad4 {
+  background-color: green;
+  opacity: 0.7;
+}

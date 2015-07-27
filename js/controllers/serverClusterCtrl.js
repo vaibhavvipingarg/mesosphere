@@ -17,13 +17,8 @@ angular.module('servercluster')
 		};
 		$scope.addServer = function () {
 			$scope.saving = true;
-			serverCluster.addServer()
-			.then(function success() {
-				//$scope.newTodo = '';
-			})
-			.finally(function () {
-				$scope.saving = false;
-			});
+			serverCluster.addServer();
+			$scope.saving = false;
 		};
 		$scope.deleteServer = function (serverId) {
 			serverCluster.deleteServer(serverId);			

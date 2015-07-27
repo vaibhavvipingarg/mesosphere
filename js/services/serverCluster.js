@@ -12,7 +12,7 @@ angular.module('servercluster')
 		// hand off the localStorage adapter
 		return $http.get('/api')
 			.then(function () {
-				return $injector.get('api');
+				return $injector.get('api-url');
 			}, function () {
 				return $injector.get('localStorage');
 			});
@@ -50,7 +50,7 @@ angular.module('servercluster')
 		var serverCluster = {
 			clusterInfo: {
 				servers: [],
-				availableApps: [
+				availableApps: [//Sample, can be extended
 							{
 								"name": "Hadoop",
 								"sc": "HD",
@@ -96,12 +96,15 @@ angular.module('servercluster')
 			_saveToLocalStorage: function (clusterInfo) {
 				localStorage.setItem(STORAGE_ID, JSON.stringify(clusterInfo));
 			},
+
 			getServers: function() {
 				return serverCluster.clusterInfo.servers;
 			},
+
 			getApps: function() {
 				return serverCluster.clusterInfo.availableApps;
 			},
+
 			initCluster: function() {
 				//add 4 empty servers to the list
 				if (serverCluster.getServers().length === 0) {
@@ -206,7 +209,7 @@ angular.module('servercluster')
 
 				serverCluster._saveToLocalStorage(serverCluster.clusterInfo);
 			},
-			
+
 			get: function () {
 				var deferred = $q.defer();
 				var clusterInfo = serverCluster._getFromLocalStorage();
